@@ -20,7 +20,7 @@ public class Respuesta {
 
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
 
     String mensaje;

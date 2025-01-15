@@ -15,7 +15,7 @@ public class Curso {
 
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     String nombre;
     String categoria;
