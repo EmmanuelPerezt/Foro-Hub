@@ -26,4 +26,7 @@ public class UsuarioService {
     public void eliminarUsuario(Long id) {
         usuarioRepository.deleteById(id);
     }
+    public boolean validarCorreo(String correo) {
+        return usuarioRepository.existsByCorreo(correo);
+    }
 }

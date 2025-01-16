@@ -20,7 +20,7 @@ public class Usuario {
 
 
     String nombre;
-    String Correo;
+    String correo;
     String password;
 
 }

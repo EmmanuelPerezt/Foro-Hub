@@ -3,6 +3,8 @@ package com.forohub.api.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.forohub.api.dto.TopicoDto;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +30,7 @@ public class Topico {
     String titulo;
     String mensaje;
     LocalDateTime fechaCreacion;
-    Boolean status;
+    String status;
     @ManyToOne
     @JoinColumn(name = "id_autor")
     private Usuario autor;
@@ -43,4 +45,15 @@ public class Topico {
 
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
     private List<Respuesta> respuestas;
+
+
+
+    public Topico(TopicoDto topicoDto) {
+        this.titulo = topicoDto.titulo();
+        this.mensaje = topicoDto.mensaje();
+        this.status = topicoDto.status();
+        this.autor = topicoDto.autor();
+        this.curso = topicoDto.curso();
+
+    }
 }
