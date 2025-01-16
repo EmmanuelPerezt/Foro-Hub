@@ -2,6 +2,7 @@ package com.forohub.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,10 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+
 
     @PostMapping
     public ResponseEntity<UsuarioresponseDto> crearUsuario(@RequestBody @Valid UsuarioDto usuarioDto) {
@@ -30,11 +35,11 @@ public class UsuarioController {
             return ResponseEntity.badRequest().body(new UsuarioresponseDto(null, null ,"Correo ya registrado"));
         }
         Usuario usuario = new Usuario();
-        usuario.setNombre(usuarioDto.nombre());
+        usuario.setUsername(usuarioDto.nombre());
         usuario.setCorreo(usuarioDto.correo());
         usuario.setPassword(usuarioDto.password());
         usuario = usuarioService.crearUsuario(usuario);
-        var usuarioresponseDto = new UsuarioresponseDto(usuario.getNombre(), usuario.getCorreo(),"Usuario creado");
+        var usuarioresponseDto = new UsuarioresponseDto(usuario.getUsername(), usuario.getCorreo(),"Usuario creado");
         return ResponseEntity.ok(usuarioresponseDto);
     }
 }
