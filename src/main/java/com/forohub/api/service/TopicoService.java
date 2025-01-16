@@ -26,10 +26,18 @@ public class TopicoService {
         topico.setFechaCreacion(LocalDateTime.now());
         return topicoRepository.save(topico);
     }
-    public Topico buscarTopicoPorId(Long id) {
-        return topicoRepository.findById(id).orElse(null);
+    public TopicoResponseDto buscarTopicoPorId(Long id) {
+        var topico = topicoRepository.findById(id).orElse(null);
+        if(topico == null) {
+            throw new RuntimeException("Topico no encontrado");
+        }
+        return new TopicoResponseDto(topico);
     }
     public Topico actualizarTopico(Topico topico) {
+        var id = topico.getId();
+        if (!topicoRepository.findById(id).isPresent()){
+            throw new RuntimeException("Topico no encontrado");
+        }
         return topicoRepository.save(topico);
     }
     public void eliminarTopico(Long id) {

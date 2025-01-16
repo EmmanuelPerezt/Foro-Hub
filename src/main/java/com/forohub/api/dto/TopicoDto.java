@@ -6,7 +6,20 @@ import com.forohub.api.model.Curso;
 import com.forohub.api.model.Topico;
 import com.forohub.api.model.Usuario;
 
-public record TopicoDto(String titulo, String mensaje, String status, Usuario autor, Curso curso) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record TopicoDto(
+    @NotBlank
+    String titulo, 
+    @NotBlank
+    String mensaje, 
+    @NotBlank
+    String status, 
+    @NotNull
+    Usuario autor, 
+    @NotNull
+    Curso curso) {
 
 
 
