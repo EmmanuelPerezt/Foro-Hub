@@ -17,5 +17,17 @@
 http://localhost:8080/swagger-ui/index.html#/
 </p>
 
+<h3 align="center">Dockerizacion</h3>
+<p>como atributo extra añadi dockerizacion para esta aplicacion por lo que puedes corrrer el proyecto de esta forma</p>
+
+
+```bash
+docker build -t <nombre de tu contenedor> .
+
+docker run -p8080:8080 -d <nombre de tu contenedor>
+```
+
+<p>nota: el contenedor se conecta a la base de datos a nivel local de maquina host por lo que deberas tener corriendo ya un servicio mysql con las credenciales del archivo de produccion</p>
+
 
 
