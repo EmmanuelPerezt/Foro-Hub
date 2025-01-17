@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/login")
-public class UsuarioController {
+public class Login {
     
 
 
