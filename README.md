@@ -4,10 +4,10 @@
 <img src='./assets/esp infrestructura.svg'>
 
 ---
-<p>challenge final para el programa orcacle one.</p>
+<p>challenge final para el programa oracle one.</p>
 
 
-<p>este challenge consta en la realizacion de una api rest, el esecnario consta de una plataforma de de foro </p>
+<p>este challenge consta en la implementacion de una api rest, el escenario consta de una plataforma de foro </p>
 
 
 <h3 align="center">Documentacion</h3>
