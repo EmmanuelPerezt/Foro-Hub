@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.forohub.api.config.TokenService;
+import com.forohub.api.dto.JwtDto;
 import com.forohub.api.dto.UsuarioDto;
 import com.forohub.api.model.Usuario;
 
@@ -29,13 +30,11 @@ public class UsuarioController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity<String>login(@RequestBody @Valid UsuarioDto usuarioDto){
+    public ResponseEntity<JwtDto>login(@RequestBody @Valid UsuarioDto usuarioDto){
         Authentication token = new UsernamePasswordAuthenticationToken(usuarioDto.username(), usuarioDto.password());
         var usuarioAutenticado = authenticationManager.authenticate(token);
         String tokenJwt =tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
-        
 
-
-        return ResponseEntity.ok(tokenJwt);
+        return ResponseEntity.ok(new JwtDto(tokenJwt));
     }
 }

@@ -29,6 +29,27 @@ public class TokenService {
             throw new RuntimeException("Error al crear token");
         }
     }
+    public String getsubject(String token){
+        if (token == null) {
+            throw new RuntimeException("Token no valido");
+            
+        }
+        try {
+            Algorithm algorithm = Algorithm.HMAC256("12345678");
+            String subject = JWT.require(algorithm)
+            .withIssuer("forohub")
+            .build().verify(token).getSubject();
+            System.out.println(subject);
+
+            if (subject == null) {
+                throw new RuntimeException("Token no valido");
+                
+            }
+            return subject;
+        } catch (Exception e) { 
+            throw new RuntimeException("Error al verificar token");
+        }
+    }
 
     private Instant fechaExpiracion() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-05:00"));
