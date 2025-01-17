@@ -12,7 +12,7 @@
 
 <h3 align="center">Documentacion</h3>
 
-<p>en este caso en concreto usamos swagger para la documentacion el cual puedes visitar en:
+<p>en este caso en concreto usamos swagger para la documentacion el cual puedes visitar al estar corriendo el proyecto en:
 
 http://localhost:8080/swagger-ui/index.html#/
 </p>
