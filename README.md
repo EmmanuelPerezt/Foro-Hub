@@ -18,7 +18,7 @@ http://localhost:8080/swagger-ui/index.html#/
 </p>
 
 <h3 align="center">Dockerizacion</h3>
-<p>Como atributo extra añadi dockerizacion para esta aplicacion por lo que puedes corrrer el proyecto de esta forma.</p>
+<p>Como atributo extra añadí dockerizacion para esta aplicacion por lo que puedes corrrer el proyecto de esta forma.</p>
 
 
 ```bash
